@@ -8,7 +8,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Daniel Durant">
 
-    <script src="api_connection.js"></script>
+    <script src="api_connection.js" defer></script>
 
     <link rel="stylesheet" href="marvel_index.css">
 
@@ -33,7 +33,11 @@
         
         <form action="" id="character-select-form">
 
+          <input type="text" placeholder="Search..." name="search" id="character-search">
 
+          <button id="bttn" type="submit" form="character-select-form">
+              Search
+          </button>
 
         </form>
 
@@ -41,18 +45,10 @@
 
       <div id="character-section-container">
 
-        <ul id="character-list">
-
-
-
-        </ul>
-
-        
-
       </div>
 
-      <footer>
-        <p>"Data provided by Marvel. © 2014 Marvel"</p>
+      <footer id="attribute-container">
+
       </footer>
 
     </section>
