@@ -7,12 +7,11 @@ async function fetchMarvelCharacter(character){
   } catch(error) {
     console.log(`Error: ${error}`);
   }
-
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
+async function cardMaker(search){
   try{
-    const characterData = await fetchMarvelCharacter(CharacterSearch);
+    const characterData = await fetchMarvelCharacter(search);
     const characterInfoElement = document.getElementById("character-section-container");
     let character= characterData.data.results[0];
     const characterDiv = document.createElement("div");
@@ -38,12 +37,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     </div>`;
     characterInfoElement.appendChild(characterDiv)
   } catch(error) {
-    console.log(`Error: ${error}`)
+    alert(`Error: ${error}`)
   }
-})
+}
 
-document.getElementById('character-select-form').addEventListener("submit", function(event){
+function middleMan(search){
+  document.addEventListener("DOMContentLoaded", cardMaker(search))
+}
+
+const inputData = document.getElementById('character-select-form');
+inputData.addEventListener("submit", function(event){
   event.preventDefault();
   const CharacterSearch = document.getElementById('character-search').value;
   document.getElementById('character-select-form').reset()
+  if (CharacterSearch == ''){
+    alert("Need search input!")
+  } else {
+    middleMan(CharacterSearch)
+  }  
 })
