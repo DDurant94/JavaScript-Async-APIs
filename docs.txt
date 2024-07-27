@@ -1,6 +1,16 @@
 About:
+  In this repository, I have set up two programs. The first is a Marvel character search engine that connects to Marvel’s public API 
+  (https://developer.marvel.com/), allowing users to search for any Marvel character they’d like to find. Information displayed from the 
+  API includes the character’s image, name, description, and copyright from Marvel. Additional information can be added at a later date, 
+  such as all the comics that character appears in, along with its own description and cover image.
+
+  The next program is a countdown timer. Users can enter hours, minutes, and seconds to count down from. Every 30 seconds, an alarm will 
+  notify the user that 30 seconds have passed on the countdown. Additionally, users can enter a message to be displayed after a user-set 
+  amount of time. There’s also an alarm set to trigger every minute until the user clicks the ‘Stop Alarm’ button.
+  
 
 Exactions:
+  None
 
 Questions:
   1. Exploring Asynchronous JavaScript

@@ -5,7 +5,9 @@ async function fetchMarvelCharacter(character){
     console.log(marvelData);
     return marvelData
   } catch(error) {
-    console.log(`Error: ${error}`);
+    const characterInfoElement = document.getElementById("character-section-container");
+    characterInfoElement.innerHTML = "Failed to connect to Marvel server. Please wait and try again."
+    alert(`Error: ${error}`);
   }
 }
 
@@ -14,12 +16,11 @@ async function cardMaker(search){
     const characterData = await fetchMarvelCharacter(search);
     const characterInfoElement = document.getElementById("character-section-container");
     let character= characterData.data.results[0];
-    const characterDiv = document.createElement("div");
-    characterDiv.innerHTML = `
+    characterInfoElement.innerHTML = `
     <div id="character-card">
   
       <div id="character-img-container">
-        <img id="character-img" src="${character.thumbnail['path']+'.'+character.thumbnail['extension']}" alt="Super Hero Image" style="width: 300px; height: auto;">
+        <img id="character-img" src="${character.thumbnail['path']+'.'+character.thumbnail['extension']}" alt="Image of ${character.name}" style="width: 300px; height: auto;">
       </div>
   
       <div id="character-name-container">
@@ -35,8 +36,9 @@ async function cardMaker(search){
       </footer>
   
     </div>`;
-    characterInfoElement.appendChild(characterDiv)
   } catch(error) {
+    const characterInfoElement = document.getElementById("character-section-container");
+    characterInfoElement.innerHTML = "Failed to connect to Marvel server. Please wait and try again."
     alert(`Error: ${error}`)
   }
 }
@@ -51,7 +53,8 @@ inputData.addEventListener("submit", function(event){
   const CharacterSearch = document.getElementById('character-search').value;
   document.getElementById('character-select-form').reset()
   if (CharacterSearch == ''){
-    alert("Need search input!")
+    const characterInfoElement = document.getElementById("character-section-container");
+    characterInfoElement.innerHTML = "Search can not be left blank"
   } else {
     middleMan(CharacterSearch)
   }  

@@ -8,9 +8,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Daniel Durant">
 
-    <script src="api_connection.js" defer></script>
-
-    <link rel="stylesheet" href="timer_index.css">
+    <script src="timer.js" defer></script>
 
     <title>Alarm Timer</title>
 
@@ -29,9 +27,90 @@
 
     <section>
 
+      <div id="input-date-container">
 
+        <form action="" id="date-form">
+          <h2>Setting Count Down:</h2>
+          <ul>
+
+            <li>
+              <label for="hrs">Hours:</label>
+              <input type="number" id="hrs" name="hrs" value="0" min="0" max="24">
+            </li>
+
+            <li>
+              <label for="min">Minutes:</label>
+              <input type="number" id="min" name="min" value="0" min="0" max="59">
+            </li>
+
+            <li>
+              <label for="sec">Seconds:</label>
+              <input type="number" id="sec" name="sec" value="0" min="0" max="59">
+            </li>
+
+          </ul>
+
+          <button id="bttn" type="submit" form="date-form">Enter</button>
+
+        </form>
+
+        <form action="" id="daley-form">
+
+          <h2>Setting Daley Message:</h2>
+
+          <ul>
+
+            <li>
+              <label for="daley-message">Enter Message</label>
+              <input type="text" id="daley-message" name="daley-message" placeholder="message">
+            </li>
+  
+            <li>
+              <label for="daley">Set Daley in Seconds</label>
+              <input type="number" id="daley" name="daley" value="0" min="0" max="60">
+            </li>
+  
+
+          </ul>
+
+          <button id="daley-bttn" type="submit" form="daley-form">Set Daley</button>
+
+        </form>
+
+        <form action="" id="repeat-form">
+
+          <h2>Stop Alarm Button:</h2>
+          
+          <button id="repeat-form-bttn" form="repeat-form">Stop Alarms</button>
+          
+        </form>
+
+      </div>
+
+      <div>
+
+        <h2>Current Time:</h2>
+
+        <div id="current-time">
+        </div>
+
+      </div>
+
+      <div>
+
+        <div>
+
+          <h2>Count Down Timer:</h2>
+  
+        </div>
+  
+        <div id="timer-container">
+        </div>
+
+      </div>
 
     </section>
+
     
   </body>
   
